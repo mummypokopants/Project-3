@@ -15,7 +15,7 @@ var app = express();
 // Will store connections here
 
 app.use(methodOverride('_method'))
-mongoose.connect('mongodb://localhost:27017/node')
+mongoose.connect('mongodb://localhost:27017/carparks')
 
 var routes = require('./config/routes');
 
