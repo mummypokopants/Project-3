@@ -1,5 +1,4 @@
 
-
 // define config object
 var config = {}
 

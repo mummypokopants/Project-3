@@ -20,9 +20,9 @@ var auth = {
       return;
     }
 
-    // Fire a query to your DB and get the user object if it exists
+    // Query to db
     auth.getUser(username, function(dbUserObj,err) {
-      if (!dbUserObj) { // If authentication fails, we send a 401 back
+      if (!dbUserObj) { // If authentication fails
         res.status(401);
         res.json({
           "status": 401,
@@ -33,8 +33,7 @@ var auth = {
 
       if (dbUserObj) {
 
-        // If authentication is success, we will generate a token
-        // and dispatch it to the client
+        // If authentication is success, generate token
         bcrypt.compare(password,dbUserObj.password, function(err, passmatch) {
             if (passmatch == true) {
               res.json(genToken(dbUserObj));

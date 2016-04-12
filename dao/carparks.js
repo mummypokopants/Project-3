@@ -102,8 +102,6 @@ var carparks = {
             if (err) {
               console.log(err);
             } else {
-              // normally we would return a 'true' or 'false' to our client, but let's output a status
-              // for illustration purposes
               res.status(200);
               res.json({
                 "status": 200,

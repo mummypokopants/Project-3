@@ -64,7 +64,6 @@ db.once('open', function() {
     next(err);
   });
 
-  // Start the server
   app.set('port', process.env.PORT || 3000);
 
 
@@ -72,9 +71,3 @@ db.once('open', function() {
       console.log('Express server listening on port ' + server.address().port);
     });
   });
-
-
-  // curl -H "content-type:application/json" http://localhost:3000/login -d '{
-  //   "username":"ga@wdi.com",
-  //   "password":"mommypoko"
-  // }'

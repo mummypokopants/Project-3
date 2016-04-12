@@ -8,7 +8,7 @@ var users = {
     // let's load in the users key
     var key = (req.body && req.body.x_key) || (req.query && req.query.x_key) || req.headers['x-key'];
     if (key) {
-      // let's see if this user is admin
+      // if user is admin
       auth.isUserAdmin(key ,function (allow,err) {;// The key would be the logged in user's username
         if (allow) {
           User.find(function (err,users) {
@@ -37,10 +37,10 @@ var users = {
 
   getOne: function(req, res) {
     var id = req.params.id;
-    // let's load in the users key
+    //  load in the users key
     var key = (req.body && req.body.x_key) || (req.query && req.query.x_key) || req.headers['x-key'];
     if (key) {
-      // let's see if this user is admin
+      //  see if this user is admin
       auth.isUserAdmin(key ,function (allow,err) {;// The key would be the logged in user's username
         if (allow) {
           User.findOne({ username: id }, function (err,user) {
@@ -69,13 +69,13 @@ var users = {
 
   create: function(req, res) {
     var body = req.body;
-    // let's load in the users key
+    // load in the users key
     var key = (req.body && req.body.x_key) || (req.query && req.query.x_key) || req.headers['x-key'];
     if (key) {
-      // let's see if this user is admin
+      // see if this user is admin
       auth.isUserAdmin(key ,function (allow,err) {;// The key would be the logged in user's username
         if (allow) {
-          // we'll need to encrypt the password before we store it
+          //  encrypt the password before storing it
           auth.encryptPass(body.password, function(hash) {
             var newuser = new User({
               username: body.username,
@@ -110,10 +110,10 @@ var users = {
   update: function(req, res) {
     var updateuser = req.body;
     var id = req.params.id;
-    // let's load in the users key
+    // load in the users key
     var key = (req.body && req.body.x_key) || (req.query && req.query.x_key) || req.headers['x-key'];
     if (key) {
-      // let's see if this user is admin
+      //  see if this user is admin
       auth.isUserAdmin(key ,function (allow,err) {;// The key would be the logged in user's username
         if (allow) {
           User.findOneAndUpdate({username:id},updateuser, function (err,user) {
@@ -142,10 +142,10 @@ var users = {
 
   delete: function(req, res) {
     var id = req.params.id;
-    // let's load in the users key
+    //  load in the users key
     var key = (req.body && req.body.x_key) || (req.query && req.query.x_key) || req.headers['x-key'];
     if (key) {
-      // let's see if this user is admin
+      // see if this user is admin
       auth.isUserAdmin(key ,function (allow,err) {;// The key would be the logged in user's username
         if (allow) {
           User.remove({username:id}, function (err,user) {

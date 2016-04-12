@@ -1,7 +1,8 @@
 var express = require('express');
-var router = express.Router(),
-    bodyParser = require('body-parser'), //parses information from POST
-    methodOverride = require('method-override'); //used to manipulate POST
+var router = express.Router()
+var bodyParser = require('body-parser')
+var methodOverride = require('method-override')
+
 
 var auth = require('../auth/auth');
 var user = require('../dao/users');
@@ -42,7 +43,6 @@ router.post('/login', auth.login);
 /*
  * Routes for users
  *  -Only accessible by role admin.
- *  -The logic that controls that is located in the user data access object)
  */
 router.get('/users', user.getAll);
 router.get('/user/:id', user.getOne);
