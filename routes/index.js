@@ -1,13 +1,13 @@
-var express = require('express'),
-    router = express.Router(),
+var express = require('express');
+var router = express.Router(),
     bodyParser = require('body-parser'), //parses information from POST
     methodOverride = require('method-override'); //used to manipulate POST
 
+var auth = require('../auth/auth');
+var user = require('../dao/users');
 
 var hdb = require('../seeds/hdb');
-
 var ura = require('../seeds/ura');
-
 var pte = require ('../seeds/private');
 
 router.get('/carparks/locations', (req,res) => {
@@ -35,33 +35,19 @@ router.get('/carparks/locations', (req,res) => {
 });
 
 
-
-
-//  DBs(1)
-// router.route('/*****')
-//     .get(*****.getAll)
-//     .post(*****.createQuote);
-// router.route('/*****/:id')
-//     .get(*****.getQuote)
-//     .patch(*****.updateQuote)
-//     .delete(*****.removeQuote);
-//
-// // DBs(2)
-// router.route('/*****')
-//     .get(*****.getAll)
-//     .post(*****.createQuote);
-// router.route('/*****/:id')
-//     .get(*****.getQuote)
-//     .patch(*****.updateQuote)
-//     .delete(*****.removeQuote);
-//
-// // DBs(3)
-// router.route('/*****')
-//     .get(*****.getAll)
-//     .post(*****.createQuote);
-// router.route('/*****/:id')
-//     .get(*****.getQuote)
-//     .patch(*****.updateQuote)
-//     .delete(*****.removeQuote);
+/*
+ * Login, accessible by anyone, you can find the logic for login function in auth/validate.js
+ */
+router.post('/login', auth.login);
+/*
+ * Routes for users
+ *  -Only accessible by role admin.
+ *  -The logic that controls that is located in the user data access object)
+ */
+router.get('/users', user.getAll);
+router.get('/user/:id', user.getOne);
+router.post('/user/', user.create);
+router.put('/user/:id', user.update);
+router.delete('/user/:id', user.delete);
 
 module.exports = router;
