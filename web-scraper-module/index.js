@@ -8,7 +8,7 @@ app.get('/scrape', function(req, res){
 
     var jsonArray = [];
 
-    for (i=861;i<879;i++){ //<879
+    for (i=1;i<879;i++){ //<879
 
       url = ('http://www.sgcarmart.com/news/carpark_index.php?TYP=carpark&LOC=all&ID='+i);
       console.log(url);
@@ -42,7 +42,7 @@ app.get('/scrape', function(req, res){
     }
     setTimeout(function(){
       console.log(jsonArray);
-      fs.writeFile('output12.json', JSON.stringify(jsonArray), function(err){
+      fs.writeFile('output.json', JSON.stringify(jsonArray), function(err){
       console.log('File successfully written! - Check your project directory for the output.json file');
     })},20000);
 
