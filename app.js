@@ -10,7 +10,6 @@ var methodOverride = require('method-override')
 var config = require('./config/config')
 var app = express()
 
-
 app.use(methodOverride('_method'))
 
 app.use(logger('dev'));
