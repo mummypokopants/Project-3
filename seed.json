@@ -1,0 +1,5 @@
+{
+	"undefined": "mongodb://localhost:27017/carparks",
+	"dev": "mongodb://localhost:27017/carparks",
+	"prod": "mongodb://localhost:27017/carparks"
+}

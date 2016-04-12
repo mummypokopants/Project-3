@@ -12,6 +12,7 @@ var app = express()
 
 
 app.use(methodOverride('_method'))
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -50,14 +51,9 @@ app.all('/*', function(req, res, next) {
 db.on('error', console.error);
 db.once('open', function() {
 
-  /**
-   *
-   * In case we want other routes to be unprotected, let's just make sure that
-   * /carpark* and /user* are validated, the rest will not be authenticated like the
-   * /login route for instance
-   *
-   */
-  app.all('/carpark*', [require('./auth/validate')]);
+// This makes carparks/location and /user protected
+
+  app.all('/carparks/locations*', [require('./auth/validate')]);
   app.all('/user*', [require('./auth/validate')]);
   app.use('/',require('./routes'));
 
