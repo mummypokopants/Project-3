@@ -8,6 +8,7 @@
     "bcrypt": "^0.8.5",
     "body-parser": "^1.13.2",
     "compression": "^1.6.1",
+    "bootstrap": "^3.3.6",
     "connect": "^3.4.1",
     "ejs": "^2.3.4",
     "ejs-locals": "^1.0.2",
