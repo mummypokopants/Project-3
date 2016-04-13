@@ -35,6 +35,17 @@ router.get('/carparks/locations', (req,res) => {
 });
 
 
+router.get("/carparks/views",(req,res)=>{
+res.render("mainlayout")
+}
+)
+
+// function getAll(request,response){
+//   Candy.find((error,candies) =>{
+//     if (error) response.json({message:"candy not found"});
+//     response.render("layout",{candies: candies});
+//   });
+// }
 
 
 //  DBs(1)

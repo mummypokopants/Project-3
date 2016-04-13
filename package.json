@@ -9,6 +9,7 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.13.2",
+    "bootstrap": "^3.3.6",
     "connect": "^3.4.1",
     "debug": "~2.2.0",
     "ejs": "^2.3.4",
