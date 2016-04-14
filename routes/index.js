@@ -11,6 +11,7 @@ var hdb = require('../data/hdb');
 var ura = require('../data/ura');
 var pte = require ('../data/private');
 
+
 router.get('/carparks/locations', (req,res) => {
   console.log('locations');
   var data1 = hdb.map(function (carpark) {

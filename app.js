@@ -11,10 +11,12 @@ var config              = require('./config/config')
 var app                 = express()
 
 app.use(methodOverride('_method'))
-app.use(logger('dev'))
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+
+// mongoose.connect('mongodb://localhost:27017/carparks')
+
+
+// var routes = require('./routes/index');
 
 
 helpers(app)

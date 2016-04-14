@@ -13,35 +13,38 @@
       margin-bottom: 0;
       border-radius: 0;
     }
-
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 450px}
-
     /* Set gray background color and 100% height */
     .sidenav {
       padding-top: 20px;
       background-color: #f1f1f1;
       height: 100%;
     }
-
     /* Set black background color, white text and some padding */
     footer {
       background-color: #555;
       color: white;
       padding: 15px;
     }
-
     .method .cell {
     font-size: 0.85em;
 }
-
-.header{
+#header{
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
     line-height: 1.42857143;
-    color: #333;
-    background-color: #fff;
+    color: white;
+    background-color: #32506d ;
+  }
 
+  #logoname{
+    color: white;
+    font-family: helvetica;
+  }
+
+  #login{
+    color: white
   }
 
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -56,7 +59,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" id="header">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -64,17 +67,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Carparks@SG</a>
+      <a class="navbar-brand" href="#" id="logoname">Carparks@SG</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li id="login"><a href="#"><span></span> Login</a></li>
       </ul>
     </div>
   </div>
@@ -83,16 +82,9 @@
 <div class="container-fluid text-center">
   <div class="row content">
 
-    <!-- <div class="col-sm-2 sidenav">
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-    </div> -->
+
     <div class="col-sm-12 text-left">
 
-      <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"> -->
-
-      <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
 
       <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 
@@ -100,7 +92,9 @@
 
 
 
-<div class="container col-md-6 col-md-offset-3" id="documentation">
+
+<div class="container col-md-8 col-md-offset-2" id="documentation">
+
 
   <!-- <button type="button" onclick="loadDoc()">click</button> -->
 <% include ./partials/carpark/documentation %>
@@ -112,131 +106,20 @@
 <% include ./partials/carpark/searchform %>
 
 </div>
-
-      <!-- <div class="container">
-        <div class = "method">
-
-          <div class = "row margin-0 list-header hidden-xs">
-            <div class = "col-sm-3">
-              <div class = "header">Fields</div>
-      </div>
-      <div class = "col-sm-3">
-        <div class = "header">Type</div>
-      </div>
-      <div class = "col-sm-5">
-        <div class = "header">Description</div>
-      </div>
-      </div>
-
-      <div class="row margin-0">
-        <div class = "col-sm-3">
-          <div class = "cell">
-            <div class = "Fieldname"> Address </div>
-        </div>
-      </div>
-
-
-          <div class = "col-sm-3">
-            <div class = "cell">
-              <div class = "Typename"> String </div>
-          </div>
-        </div>
-
-
-            <div class = "col-sm-5">
-              <div class = "cell">
-                <div class = "Descriptionname"> Addresses of carparks in Singapore </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row margin-0">
-          <div class = "col-sm-3">
-            <div class = "cell">
-              <div class = "Fieldname"> Carpark Type </div>
-          </div>
-        </div>
-
-
-            <div class = "col-sm-3">
-              <div class = "cell">
-                <div class = "Typename"> String </div>
-            </div>
-          </div>
-
-
-              <div class = "col-sm-5">
-                <div class = "cell">
-                  <div class = "Descriptionname"> Identify HDB, private and URA carkparks </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row margin-0">
-            <div class = "col-sm-3">
-              <div class = "cell">
-                <div class = "Fieldname"> Carpark Rates</div>
-            </div>
-          </div>
-
-
-              <div class = "col-sm-3">
-                <div class = "cell">
-                  <div class = "Typename"> Number </div>
-              </div>
-            </div>
-
-
-                <div class = "col-sm-5">
-                  <div class = "cell">
-                    <div class = "Descriptionname"> Rates for carparks </div>
-                </div>
-              </div>
-            </div> -->
-
-
-
-
-
-
-      </div>
-      </div><!-- /.container -->
-      <hr>
-      <h3>Test</h3>
-      <p>Lorem ipsum...</p>
-    </div>
-    <!-- <div class="col-sm-2 sidenav">
-      <div class="well">
-        <p>ADS</p>
-      </div>
-      <div class="well">
-        <p>ADS</p>
-      </div>
-    </div> -->
-  </div>
-</div>
-
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
-
 </body>
 </html>
 
 
-carparkWithAddressOnly['address'] = carpark.address;
-carparkWithAddressOnly['type'] = 'Private';
-carparkWithAddressOnly['weekday7amto1030pm'] = carpark.monFribefore6pmRates;
-carparkWithAddressOnly['weekday1030pmto7am'] = carpark.monFriafter6pmRates;
-carparkWithAddressOnly['Saturday7amto1030pm'] = '$0.50/30mins';
-carparkWithAddressOnly['Saturday1030pmto7am'] = '$4.00/Night';
-carparkWithAddressOnly['Sunday7amto1030pm'] = 'no charge';
-carparkWithAddressOnly['Sunday1030pmto7am'] = carpark.sunPHRates;
+
 
 <script type="text/javascript">
   'use strict'
+
+
   $('form').submit(function (event) {
     event.preventDefault();
+    $('#search-results').html('')
+
     var value = encodeURI($('input').val())
     var url = '/carparks/search?q=' + value
     $.get(url, function (data) {
@@ -261,6 +144,7 @@ carparkWithAddressOnly['Sunday1030pmto7am'] = carpark.sunPHRates;
         row.append(saturdayEvening)
         row.append(sundayMorn)
         row.append(sundayEvening)
+        $('input').val('')
         $('#search-results').append(row)
       })
     })

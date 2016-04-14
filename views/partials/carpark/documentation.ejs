@@ -1,3 +1,13 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#get-descriptions').on('click', function(){
+      $('#doctable').toggle()
+
+    })
+  })
+</script>
+
+
 
 <style>
 
@@ -11,21 +21,33 @@
 
 }
 
+.link-to-api{
+  margin: 5px;
+  text-decoration: none;
+}
+
+#get-descriptions{
+  margin: 5px;
+}
+
 </style>
+
+<div class="container col-md-10 col-md-offset-1">
+  <button type="button" name="button" class="btn btn-info col-md-3"  id="get-descriptions">Get Descriptions</button>
+  <a href="/carparks/locations" class="link-to-api col-md-2">API get: /carparks/locations</a>
+</div>
+
 
 
   <table class="table table-hover" id="doctable">
 
     <thead >
-      <td>Get</td>
       <tr >
         <th>Fields</th>
-        <th>Type</th>
+        <th>Types</th>
         <th>Description</th>
       </tr>
-
           </thead>
-
     <tbody>
       <tr>
         <td>Address</td>
@@ -38,10 +60,34 @@
         <td>Identify HDB, private and URA carkparks</td>
       </tr>
       <tr>
-        <td>Carpark Rates</td>
-        <td>Number</td>
-        <td>Price of carparks</td>
+        <td>Carpark rate from 0700hrs to 2230hrs (Weekdays)</td>
+        <td>String</td>
+        <td>Retrieves the rates for the timings on weekdays</td>
+      </tr>
+      <tr>
+        <td>Carpark rate from 2230hrs to 0700hrs (Weekdays)</td>
+        <td>String</td>
+        <td>Retrieves the rates for the timings on weekdays</td>
+      </tr>
+      <tr>
+        <td>Carpark rate from 0700hrs to 2230hrs (Saturday)</td>
+        <td>String</td>
+        <td>Retrieves the rates for the timings on Saturday</td>
+      </tr>
+      <tr>
+        <td>Carpark rate from 2230hrs to 0700hrs (Saturday)</td>
+        <td>String</td>
+        <td>Retrieves the rates for the timings on Saturday</td>
+      </tr>
+      <tr>
+        <td>Carpark rate from 0700hrs to 2230hrs (Sunday)</td>
+        <td>String</td>
+        <td>Retrieves the rates for the timings on Sunday</td>
+      </tr>
+      <tr>
+        <td>Carpark rate from 2230hrs to 0700hrs (Sunday)</td>
+        <td>String</td>
+        <td>Retrieves the rates for the timings on Sunday</td>
       </tr>
     </tbody>
   </table>
-</div>
