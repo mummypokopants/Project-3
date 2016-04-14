@@ -107,6 +107,12 @@
 
 </div>
 
+<div class="container col-md-10 col-md-offset-1" id="documentation">
+
+<% include ./partials/carpark/searchform %>
+
+</div>
+
       <!-- <div class="container">
         <div class = "method">
 
@@ -218,17 +224,45 @@
 </html>
 
 
-
+carparkWithAddressOnly['address'] = carpark.address;
+carparkWithAddressOnly['type'] = 'Private';
+carparkWithAddressOnly['weekday7amto1030pm'] = carpark.monFribefore6pmRates;
+carparkWithAddressOnly['weekday1030pmto7am'] = carpark.monFriafter6pmRates;
+carparkWithAddressOnly['Saturday7amto1030pm'] = '$0.50/30mins';
+carparkWithAddressOnly['Saturday1030pmto7am'] = '$4.00/Night';
+carparkWithAddressOnly['Sunday7amto1030pm'] = 'no charge';
+carparkWithAddressOnly['Sunday1030pmto7am'] = carpark.sunPHRates;
 
 <script type="text/javascript">
-function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-      document.getElementById("documentation").innerHTML = xhttp.responseText;
-    }
-  };
-  xhttp.open("GET", "ajax_info.txt", true);
-  xhttp.send();
-}
+  'use strict'
+  $('form').submit(function (event) {
+    event.preventDefault();
+    var value = encodeURI($('input').val())
+    var url = '/carparks/search?q=' + value
+    $.get(url, function (data) {
+      data.forEach(function (carpark) {
+        console.log(carpark.address)
+        console.log(carpark.weekday7amto1030pm)
+        // $('tbody').append('tr').append('td').text(carpark.address)
+        var row = $('<tr>')
+        var address = $('<td>').text(carpark.address)
+        var type = $('<td>').text(carpark.type)
+        var weekdayMorn = $('<td>').text(carpark.weekday7amto1030pm)
+        var weekdayEvening = $('<td>').text(carpark.weekday1030pmto7am)
+        var saturdayMorn = $('<td>').text(carpark.Saturday7amto1030pm)
+        var saturdayEvening = $('<td>').text(carpark.Saturday1030pmto7am)
+        var sundayMorn = $('<td>').text(carpark.Sunday7amto1030pm)
+        var sundayEvening = $('<td>').text(carpark.Sunday1030pmto7am)
+        row.append(address)
+        row.append(type)
+        row.append(weekdayMorn)
+        row.append(weekdayEvening)
+        row.append(saturdayMorn)
+        row.append(saturdayEvening)
+        row.append(sundayMorn)
+        row.append(sundayEvening)
+        $('#search-results').append(row)
+      })
+    })
+  })
 </script>
