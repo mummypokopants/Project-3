@@ -11,25 +11,6 @@ var hdb = require('../data/hdb');
 var ura = require('../data/ura');
 var pte = require ('../data/private');
 
-<<<<<<< HEAD
-=======
-var express = require('express');
-var router = express.Router()
-var bodyParser = require('body-parser')
-var methodOverride = require('method-override')
-
-
-var auth = require('../auth/auth'),
-    user = require('../dao/users'),
-    hdb = require('../seeds/hdb'),
-    ura = require('../seeds/ura'),
-    pte = require ('../seeds/private');
-<<<<<<< HEAD
->>>>>>> 6ce41c82d97d23b00e97fbf6e96f5e9ae8f215ab
-
-=======
->>>>>>> 2bcc7e34abfe066883062f57a2a3095cae865637
-
 router.get('/carparks/locations', (req,res) => {
   console.log('locations');
   var data1 = hdb.map(function (carpark) {
@@ -87,10 +68,6 @@ router.post('/user/', user.create);
 router.put('/user/:id', user.update);
 router.delete('/user/:id', user.delete);
 router.get("/carparks/views",(req,res)=>{
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 6ce41c82d97d23b00e97fbf6e96f5e9ae8f215ab
   res.render("mainlayout");
 });
 
@@ -106,48 +83,5 @@ router.get('/carparks/search', (req, res) => {
       } else {throw err;}
     });
 })
-<<<<<<< HEAD
-=======
-=======
-res.render("mainlayout")
-}
-)
->>>>>>> 2bcc7e34abfe066883062f57a2a3095cae865637
-
-// function getAll(request,response){
-//   Candy.find((error,candies) =>{
-//     if (error) response.json({message:"candy not found"});
-//     response.render("layout",{candies: candies});
-//   });
-// }
-
-
-//  DBs(1)
-// router.route('/*****')
-//     .get(*****.getAll)
-//     .post(*****.createQuote);
-// router.route('/*****/:id')
-//     .get(*****.getQuote)
-//     .patch(*****.updateQuote)
-//     .delete(*****.removeQuote);
-//
-// // DBs(2)
-// router.route('/*****')
-//     .get(*****.getAll)
-//     .post(*****.createQuote);
-// router.route('/*****/:id')
-//     .get(*****.getQuote)
-//     .patch(*****.updateQuote)
-//     .delete(*****.removeQuote);
-//
-// // DBs(3)
-// router.route('/*****')
-//     .get(*****.getAll)
-//     .post(*****.createQuote);
-// router.route('/*****/:id')
-//     .get(*****.getQuote)
-//     .patch(*****.updateQuote)
-//     .delete(*****.removeQuote);
->>>>>>> 6ce41c82d97d23b00e97fbf6e96f5e9ae8f215ab
 
 module.exports = router;
