@@ -20,7 +20,10 @@ var auth = require('../auth/auth'),
     hdb = require('../seeds/hdb'),
     ura = require('../seeds/ura'),
     pte = require ('../seeds/private');
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2bcc7e34abfe066883062f57a2a3095cae865637
 
 router.get('/carparks/locations', (req,res) => {
   console.log('locations');
@@ -79,6 +82,7 @@ router.post('/user/', user.create);
 router.put('/user/:id', user.update);
 router.delete('/user/:id', user.delete);
 router.get("/carparks/views",(req,res)=>{
+<<<<<<< HEAD
   res.render("mainlayout");
 });
 
@@ -94,6 +98,11 @@ router.get('/carparks/search', (req, res) => {
       } else {throw err;}
     });
 })
+=======
+res.render("mainlayout")
+}
+)
+>>>>>>> 2bcc7e34abfe066883062f57a2a3095cae865637
 
 // function getAll(request,response){
 //   Candy.find((error,candies) =>{
