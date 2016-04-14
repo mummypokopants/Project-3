@@ -12,10 +12,10 @@ var app = express()
 
 app.use(methodOverride('_method'))
 
-mongoose.connect('mongodb://localhost:27017/carparks')
+// mongoose.connect('mongodb://localhost:27017/carparks')
 
 
-var routes = require('./config/routes');
+// var routes = require('./routes/index');
 
 
 app.use(logger('dev'));
