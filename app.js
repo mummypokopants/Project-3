@@ -16,6 +16,13 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
+
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
 helpers(app)
 app.set('views', path.join(__dirname, 'views'))
 app.engine('ejs', engine)
@@ -51,21 +58,21 @@ db.once('open', function() {
 
 // This makes carparks/location and /user protected
 
-  app.all('/carparks/locations*', [require('./auth/validate')]);
-  app.all('/user*', [require('./auth/validate')]);
-  app.use('/',require('./routes'));
+app.all('/carparks/locations*', [require('./auth/validate')]);
+app.all('/user*', [require('./auth/validate')]);
+app.use('/',require('./routes'));
 
   // If no route is matched, return a 404
-  app.use(function(req, res, next) {
+app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
-  });
+});
 
   app.set('port', process.env.PORT || 3000);
 
 
-  var server = app.listen(app.get('port'), function() {
-      console.log('Express server listening on port ' + server.address().port);
+var server = app.listen(app.get('port'), function() {
+    console.log('Express server listening on port ' + server.address().port);
     });
-  });
+});

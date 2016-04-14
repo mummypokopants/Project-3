@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Wow</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>Wow</h1>
+    <form>
+      <input type="text" value="ang mo kio" autofocus>
+    </form>
+    <script type="text/javascript">
+      'use strict'
+      $('form').submit(function (event) {
+        event.preventDefault();
+        var value = encodeURI($('input').val())
+        var url = '/carparks/search?q=' + value
+        $.get(url, function (data) {
+          console.log(data)
+          data.forEach(function (carpark) {
+            console.log(carpark.address)
+          })
+        })
+      })
+    </script>
+  </body>
+</html>

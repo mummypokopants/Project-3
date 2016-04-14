@@ -9,6 +9,7 @@
     "body-parser": "^1.13.2",
     "bootstrap": "^3.3.6",
     "compression": "^1.6.1",
+    "bootstrap": "^3.3.6",
     "connect": "^3.4.1",
     "ejs": "^2.3.4",
     "ejs-locals": "^1.0.2",
@@ -23,7 +24,8 @@
     "mongoose": "^4.4.11",
     "morgan": "~1.6.1",
     "path": "^0.11.14",
-    "semantic-ui-api": "^2.1.7"
+    "semantic-ui-api": "^2.1.7",
+    "underscore": "^1.8.3"
   },
   "author": "Mommypokko",
   "license": "ISC"
