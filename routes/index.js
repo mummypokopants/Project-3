@@ -1,27 +1,15 @@
-
 var express = require('express'),
     router = express.Router(),
-    bodyParser = require('body-parser'), //parses information from POST
-    methodOverride = require('method-override'), //used to manipulate POST
-    _ = require('underscore')
+    bodyParser = require('body-parser'),
+    methodOverride = require('method-override'),
+    _ = require('underscore'),
+    auth = require('../auth/auth'),
+    user = require('../dao/users')
+
 var Carpark = require('../models/carpark')
 var hdb = require('../data/hdb');
 var ura = require('../data/ura');
 var pte = require ('../data/private');
-
-var express = require('express');
-var router = express.Router()
-var bodyParser = require('body-parser')
-var methodOverride = require('method-override')
-
-
-var auth = require('../auth/auth');
-var user = require('../dao/users');
-
-var hdb = require('../seeds/hdb');
-var ura = require('../seeds/ura');
-var pte = require ('../seeds/private');
-
 
 router.get('/carparks/locations', (req,res) => {
   console.log('locations');
@@ -95,40 +83,5 @@ router.get('/carparks/search', (req, res) => {
       } else {throw err;}
     });
 })
-
-// function getAll(request,response){
-//   Candy.find((error,candies) =>{
-//     if (error) response.json({message:"candy not found"});
-//     response.render("layout",{candies: candies});
-//   });
-// }
-
-
-//  DBs(1)
-// router.route('/*****')
-//     .get(*****.getAll)
-//     .post(*****.createQuote);
-// router.route('/*****/:id')
-//     .get(*****.getQuote)
-//     .patch(*****.updateQuote)
-//     .delete(*****.removeQuote);
-//
-// // DBs(2)
-// router.route('/*****')
-//     .get(*****.getAll)
-//     .post(*****.createQuote);
-// router.route('/*****/:id')
-//     .get(*****.getQuote)
-//     .patch(*****.updateQuote)
-//     .delete(*****.removeQuote);
-//
-// // DBs(3)
-// router.route('/*****')
-//     .get(*****.getAll)
-//     .post(*****.createQuote);
-// router.route('/*****/:id')
-//     .get(*****.getQuote)
-//     .patch(*****.updateQuote)
-//     .delete(*****.removeQuote);
 
 module.exports = router;
