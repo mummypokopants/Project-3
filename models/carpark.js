@@ -1,3 +1,4 @@
+
 'use strict'
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
@@ -11,6 +12,8 @@ const carparkSchema = new Schema({
     Sunday7amto1030pm: String,
     Sunday1030pmto7am: String
 });
+
+
 
 
 module.exports = mongoose.model('Carpark', carparkSchema);

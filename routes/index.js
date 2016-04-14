@@ -1,3 +1,4 @@
+
 var express = require('express'),
     router = express.Router(),
     bodyParser = require('body-parser'), //parses information from POST
@@ -7,6 +8,20 @@ var Carpark = require('../models/carpark')
 var hdb = require('../data/hdb');
 var ura = require('../data/ura');
 var pte = require ('../data/private');
+
+var express = require('express');
+var router = express.Router()
+var bodyParser = require('body-parser')
+var methodOverride = require('method-override')
+
+
+var auth = require('../auth/auth');
+var user = require('../dao/users');
+
+var hdb = require('../seeds/hdb');
+var ura = require('../seeds/ura');
+var pte = require ('../seeds/private');
+
 
 router.get('/carparks/locations', (req,res) => {
   console.log('locations');
@@ -51,6 +66,19 @@ router.get('/carparks/locations', (req,res) => {
 });
 
 
+/*
+ * Login, accessible by anyone, you can find the logic for login function in auth/validate.js
+ */
+router.post('/login', auth.login);
+/*
+ * Routes for users
+ *  -Only accessible by role admin.
+ */
+router.get('/users', user.getAll);
+router.get('/user/:id', user.getOne);
+router.post('/user/', user.create);
+router.put('/user/:id', user.update);
+router.delete('/user/:id', user.delete);
 router.get("/carparks/views",(req,res)=>{
   res.render("mainlayout");
 });
