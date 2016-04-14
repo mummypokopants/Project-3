@@ -67,6 +67,8 @@ router.get('/user/:id', user.getOne);
 router.post('/user/', user.create);
 router.put('/user/:id', user.update);
 router.delete('/user/:id', user.delete);
+
+
 router.get("/carparks/views",(req,res)=>{
   res.render("mainlayout");
 });
@@ -83,5 +85,6 @@ router.get('/carparks/search', (req, res) => {
       } else {throw err;}
     });
 })
+
 
 module.exports = router;
