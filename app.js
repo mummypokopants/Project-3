@@ -1,25 +1,25 @@
-var express    = require('express')
-var engine     = require('ejs-locals')
-var path       = require('path')
-var logger     = require('morgan')
-var bodyParser = require('body-parser')
-var mongoose   = require('mongoose')
-var helpers    = require('express-helpers')
-var connect        = require('connect')
-var methodOverride = require('method-override')
-var config = require('./config/config')
-var app = express()
+var express             = require('express')
+var engine              = require('ejs-locals')
+var path                = require('path')
+var logger              = require('morgan')
+var bodyParser          = require('body-parser')
+var mongoose            = require('mongoose')
+var helpers             = require('express-helpers')
+var connect             = require('connect')
+var methodOverride      = require('method-override')
+var config              = require('./config/config')
+var app                 = express()
 
 app.use(methodOverride('_method'))
+app.use(logger('dev'))
 
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
-helpers(app);
-app.set('views', path.join(__dirname, 'views'));
-app.engine('ejs', engine);
-app.set('view engine', 'ejs');
+helpers(app)
+app.set('views', path.join(__dirname, 'views'))
+app.engine('ejs', engine)
+app.set('view engine', 'ejs')
 
 app.use(express.static(__dirname + '/public'));
 
@@ -32,9 +32,8 @@ mongoose.connect(config.db);
 
 app.all('/*', function(req, res, next) {
   // CORS headers
-  res.header("Access-Control-Allow-Origin", "*"); // restrict it to the required domain
+  res.header("Access-Control-Allow-Origin", "*");
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  // Set custom headers for CORS
   res.header('Access-Control-Allow-Headers', 'Content-type,Accept');
   // If someone calls with method OPTIONS, let's display the allowed methods on our API
   if (req.method == 'OPTIONS') {

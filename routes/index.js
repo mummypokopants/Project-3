@@ -53,39 +53,6 @@ res.render("mainlayout")
 }
 )
 
-// function getAll(request,response){
-//   Candy.find((error,candies) =>{
-//     if (error) response.json({message:"candy not found"});
-//     response.render("layout",{candies: candies});
-//   });
-// }
 
-
-//  DBs(1)
-// router.route('/*****')
-//     .get(*****.getAll)
-//     .post(*****.createQuote);
-// router.route('/*****/:id')
-//     .get(*****.getQuote)
-//     .patch(*****.updateQuote)
-//     .delete(*****.removeQuote);
-//
-// // DBs(2)
-// router.route('/*****')
-//     .get(*****.getAll)
-//     .post(*****.createQuote);
-// router.route('/*****/:id')
-//     .get(*****.getQuote)
-//     .patch(*****.updateQuote)
-//     .delete(*****.removeQuote);
-//
-// // DBs(3)
-// router.route('/*****')
-//     .get(*****.getAll)
-//     .post(*****.createQuote);
-// router.route('/*****/:id')
-//     .get(*****.getQuote)
-//     .patch(*****.updateQuote)
-//     .delete(*****.removeQuote);
 
 module.exports = router;
