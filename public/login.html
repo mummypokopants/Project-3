@@ -18,15 +18,18 @@
       'use strict'
 
       // this is on API application
-      var username = $('input[type="text"]').val()
-      var password = $('input[type="password"]').val()
+
       $('form').submit(function (event) {
+        var username = $('input[type="text"]').val()
+        var password = $('input[type="password"]').val()
         event.preventDefault();
         $.ajax({
             url: '/login',
             method: 'POST',
             data : {
-                form: $('form').serialize(),
+                // form: $('form').serialize(),
+                username: username,
+                password: password,
                 jwt: window.localStorage.getItem('token')
             },
         }).done(function (result) {
