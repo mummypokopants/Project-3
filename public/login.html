@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Wow</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>Get Token</h1>
+    <form>
+      <input name="username" type="text" placeholder="Username" autofocus>
+      <input name="password" type="password" placeholder="Password">
+      <button type="submit" name="button">Get Token</button>
+
+      <div id="sendtoken">Send Token</div>
+    </form>
+    <script type="text/javascript">
+      'use strict'
+
+      // this is on API application
+      var username = $('input[type="text"]').val()
+      var password = $('input[type="password"]').val()
+      $('form').submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: '/login',
+            method: 'POST',
+            data : {
+                form: $('form').serialize(),
+                jwt: window.localStorage.getItem('token')
+            },
+        }).done(function (result) {
+            console.log(result);
+            window.localStorage.setItem('token', result.token)
+            window.localStorage.setItem('user', result.user)
+        })
+      })
+
+
+    // web developer's app
+    $('#sendtoken').click(function() {
+        console.log('hi')
+        $.ajax({
+            url: '/carparks/locations',
+            method: 'GET',
+            headers: {
+                "x-key": window.localStorage.getItem('user'),
+                "x-access-token": window.localStorage.getItem('token'),
+                'Content-Type':'application/json'
+            }
+        }).done(function(e){
+            console.log(e)
+        })
+    })
+
+    </script>
+  </body>
+</html>

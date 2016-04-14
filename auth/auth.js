@@ -6,7 +6,8 @@ var bcrypt = require('bcrypt');
 var auth = {
 
   login: function(req, res) {
-
+    console.log(req.body)
+    
     var username = req.body.username || '';
     var password = req.body.password || '';
     console.log('u: ' + username);
@@ -15,7 +16,7 @@ var auth = {
       res.status(401);
       res.json({
         "status": 401,
-        "message": "Invalid credentials"
+        "message": "Invalid cred"
       });
       return;
     }
@@ -26,7 +27,7 @@ var auth = {
         res.status(401);
         res.json({
           "status": 401,
-          "message": "Invalid credentials"
+          "message": "Invalid credent"
         });
         return;
       }

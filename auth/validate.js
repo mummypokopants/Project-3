@@ -39,7 +39,7 @@ module.exports = function(req, res, next) {
             });
             return;
           }
-      }); // end getUser()
+      }); 
 
     } catch (err) {
       res.status(500);

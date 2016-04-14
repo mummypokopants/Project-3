@@ -19,12 +19,6 @@ app.use(methodOverride('_method'))
 // var routes = require('./routes/index');
 
 
-
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-
 helpers(app)
 app.set('views', path.join(__dirname, 'views'))
 app.engine('ejs', engine)
