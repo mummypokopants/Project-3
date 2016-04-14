@@ -9,7 +9,7 @@ var connect             = require('connect')
 var methodOverride      = require('method-override')
 var config              = require('./config/config')
 var app                 = express()
-var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/carparks'
+var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/carparks'
 mongoose.connect(mongoUri);
 
 app.use(methodOverride('_method'))
