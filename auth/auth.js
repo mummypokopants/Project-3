@@ -6,12 +6,13 @@ var bcrypt = require('bcrypt');
 var auth = {
 
   login: function(req, res) {
-    console.log(req.body)
-    
+    console.log(req.body.form)
+
     var username = req.body.username || '';
     var password = req.body.password || '';
     console.log('u: ' + username);
     console.log('p: ' + password);
+
     if (username == '' || password == '') {
       res.status(401);
       res.json({
