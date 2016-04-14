@@ -4,12 +4,11 @@ var bodyParser = require('body-parser')
 var methodOverride = require('method-override')
 
 
-var auth = require('../auth/auth');
-var user = require('../dao/users');
-
-var hdb = require('../seeds/hdb');
-var ura = require('../seeds/ura');
-var pte = require ('../seeds/private');
+var auth = require('../auth/auth'),
+    user = require('../dao/users'),
+    hdb = require('../seeds/hdb'),
+    ura = require('../seeds/ura'),
+    pte = require ('../seeds/private');
 
 router.get('/carparks/locations', (req,res) => {
   console.log('locations');
