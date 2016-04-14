@@ -11,7 +11,13 @@ var config              = require('./config/config')
 var app                 = express()
 
 app.use(methodOverride('_method'))
-app.use(logger('dev'))
+
+
+// mongoose.connect('mongodb://localhost:27017/carparks')
+
+
+// var routes = require('./routes/index');
+
 
 
 app.use(logger('dev'));
