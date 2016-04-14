@@ -12,6 +12,12 @@ var app = express()
 
 app.use(methodOverride('_method'))
 
+mongoose.connect('mongodb://localhost:27017/carparks')
+
+
+var routes = require('./config/routes');
+
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
