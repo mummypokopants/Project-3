@@ -21,11 +21,24 @@
 
 }
 
+.link-to-api{
+  margin: 5px;
+  text-decoration: none;
+}
+
+#get-descriptions{
+  margin: 5px;
+}
+
 </style>
 
+<div class="container col-md-10 col-md-offset-1">
+  <button type="button" name="button" class="btn btn-info col-md-3"  id="get-descriptions">Get Descriptions</button>
+  <a href="/carparks/locations" class="link-to-api col-md-2">API get: /carparks/locations</a>
+</div>
 
-  <button type="button" name="button" class="btn btn-info" id="get-descriptions">Get Descriptions</button>
-  <a href="/carparks/locations">Click Me for the API</a>
+
+
   <table class="table table-hover" id="doctable">
 
     <thead >
