@@ -1,3 +1,5 @@
+var bodyParser          = require('body-parser')
+var express             = require('express')
 var jwt = require('jwt-simple');
 var User = require('../models/user');
 var config = require('../config/config');
@@ -6,7 +8,11 @@ var bcrypt = require('bcrypt');
 var auth = {
 
   login: function(req, res) {
+
+    console.log(req.body)
+
     console.log(req.body.form)
+
 
     var username = req.body.username || '';
     var password = req.body.password || '';

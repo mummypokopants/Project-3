@@ -14,6 +14,8 @@ mongoose.connect(mongoUri);
 
 app.use(methodOverride('_method'))
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // mongoose.connect('mongodb://localhost:27017/carparks')
 
@@ -57,7 +59,7 @@ db.once('open', function() {
 
 // This makes carparks/location and /user protected
 
-app.all('/carparks/locations*', [require('./auth/validate')]);
+// app.all('/carparks/locations*', [require('./auth/validate')]);
 app.all('/user*', [require('./auth/validate')]);
 app.use('/',require('./routes'));
 
