@@ -9,6 +9,8 @@ var connect             = require('connect')
 var methodOverride      = require('method-override')
 var config              = require('./config/config')
 var app                 = express()
+var mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/carparks'
+mongoose.connect(mongoUri);
 
 app.use(methodOverride('_method'))
 
@@ -19,7 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // var routes = require('./routes/index');
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 
 helpers(app)
 app.set('views', path.join(__dirname, 'views'))
@@ -32,7 +35,7 @@ var mongoose = require('mongoose');
 var db = mongoose.connection;
 
 // connect to the db
-mongoose.connect(config.db);
+// mongoose.connect(config.db);
 
 
 app.all('/*', function(req, res, next) {
